@@ -7,8 +7,7 @@ import connectDB from "./SRC/DB/connectDB.js";
 import salesRoutes from "./SRC/Routes/salesRoutes.js";
 import authRoute from "./SRC/Routes/authRoute.js";
 import userRoute from "./SRC/Routes/userRoute.js"
-import generateToken from "./SRC/utils/generateTokenandsetCookies.js";
-
+import productRoute from "./SRC/Routes/productRoute.js"
 // import globalErr from "./SRC/controller/errorController.js"
 
 // initializing the dotenv method
@@ -25,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api/v1/sales", salesRoutes);
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/users", userRoute);
+app.use("/api/v1/product", productRoute);
 
 // Global Error Handler
 // app.use(globalErr)

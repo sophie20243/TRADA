@@ -1,12 +1,10 @@
 import express from "express";
-import { createSales, deleteSale, getAllSales, getSale } from "../controller/salesController.js";
-
+import { createSales, getAllSales, getSale,deleteSale, } from "../controller/salesController.js";
 
 const router = express.Router();
-
-router.post("/create",createSales)
-router.get("/",getAllSales);
-router.delete("/:id",deleteSale);
+router.post("",createSales);
+router.get("",getAllSales);
 router.get("/:id",getSale);
+router.delete("/:id", deleteSale)
 
 export default router;

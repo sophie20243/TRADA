@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
 
-const salesSchema = mongoose.Schema({
-  description: {
+const productSchema = mongoose.Schema({
+  productName: {
     type: String,
-    min: 10,
+    min: 2,
     max: 60
 
   },
-  quantity: {
+  stock: {
     type: Number,
     required: true,
     min: 1,
@@ -35,11 +35,11 @@ const salesSchema = mongoose.Schema({
   profit: Number,
 });
 
-salesSchema.pre("save", function (next) {
+productSchema.pre("save", function (next) {
   this.profit = (this.sellingPrice - this.costPrice) * this.quantity;
   next()
 });
 
-const Sales = mongoose.model("Sales", salesSchema);
-export default Sales;
+const Product = mongoose.model("Product", productSchema);
+export default Product
 
