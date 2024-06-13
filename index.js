@@ -4,8 +4,10 @@ import cors from "cors";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import connectDB from "./SRC/DB/connectDB.js";
-import salesRoutes from "./SRC/Routes/salesRoutes.js"
-import authRoute from "./SRC/Routes/authRoute.js"
+import salesRoutes from "./SRC/Routes/salesRoutes.js";
+import authRoute from "./SRC/Routes/authRoute.js";
+import userRoute from "./SRC/Routes/userRoute.js"
+import generateToken from "./SRC/utils/generateTokenandsetCookies.js";
 
 // import globalErr from "./SRC/controller/errorController.js"
 
@@ -20,9 +22,9 @@ app.use(cors({ origin: "*" }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
-app.use("/api/v1/sales", salesRoutes)
-app.use("/api/v1/auth",authRoute)
+app.use("/api/v1/sales", salesRoutes);
+app.use("/api/v1/auth", authRoute);
+app.use("/api/v1/users", userRoute);
 
 // Global Error Handler
 // app.use(globalErr)
